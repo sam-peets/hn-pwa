@@ -19,6 +19,8 @@ export default function manifest(): MetadataRoute.Manifest {
         "purpose": "maskable"
       }
     ],
-    "display": "standalone"
+    "display": "standalone",
+    "id": "/hn-pwa/",
+    "start_url": "/hn-pwa/"
   }
 }
