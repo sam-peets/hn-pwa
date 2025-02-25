@@ -27,8 +27,8 @@ export default function MainPage({ getStoriesFn }: { getStoriesFn: () => Promise
         <div>
             <StoryList skip={page * LIMIT} limit={LIMIT} ids={stories} />
 
-            <Link href={`/?p=${page - 1}`} className={`p-2 ${page == 0 ? 'pointer-events-none text-slate-500' : ''}`}>Prev</Link>
-            <Link href={`/?p=${page + 1}`} className={`p-2 ${(page + 1) * LIMIT >= stories.length ? 'pointer-events-none text-slate-500' : ''}`}>Next</Link>
+            <Link href={`?p=${page - 1}`} className={`p-2 ${page == 0 ? 'pointer-events-none text-slate-500' : ''}`}>Prev</Link>
+            <Link href={`?p=${page + 1}`} className={`p-2 ${(page + 1) * LIMIT >= stories.length ? 'pointer-events-none text-slate-500' : ''}`}>Next</Link>
         </div>
     );
 }
