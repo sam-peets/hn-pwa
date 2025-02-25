@@ -15,7 +15,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className="flex justify-center">
-        <div className="content-center max-w-4xl w-full">
+        <div className="content-center max-w-4xl w-full px-4">
           <Header />
           {children}
           <Footer />
