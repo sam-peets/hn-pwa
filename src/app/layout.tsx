@@ -44,7 +44,9 @@ export default function RootLayout({
       <body className="flex justify-center">
         <div className="content-center max-w-4xl w-full px-4">
           <Header />
-          {children}
+          <div className="min-h-fit">
+            {children}
+          </div>
           <Footer />
         </div>
       </body>
