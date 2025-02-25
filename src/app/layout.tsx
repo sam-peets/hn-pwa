@@ -5,8 +5,31 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'HN PWA',
+  title: {
+    template: "%s | HN PWA",
+    default: "HN PWA"
+  },
   description: 'Progressive Web App frontend for Hacker News built with Next.js',
+  applicationName: "HN PWA",
+  authors: [
+    { name: "Samuel Peets", url: "https://sampeets.com" },
+  ],
+  keywords: ["hackernews", "news", "react", "pwa", "progressive web app"],
+  openGraph: {
+    type: "website",
+    url: "https://hn.sampeets.com",
+    title: "HN PWA",
+    description: "Progressive Web App frontend for Hacker News built with Next.js",
+    siteName: "HN PWA",
+    images: [
+      { url: "https://hn.sampeets.com/web-app-manifest-512x512.png" }
+    ]
+  },
+  appleWebApp: {
+    capable: true,
+    title: "HN PWA",
+    statusBarStyle: "black-translucent",
+  }
 }
 export default function RootLayout({
   children,
@@ -16,9 +39,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-title" content="HN PWA" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className="flex justify-center">
         <div className="content-center max-w-4xl w-full px-4">
