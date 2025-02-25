@@ -38,6 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleTagManager gtmId="GTM-KLRFQTTK" />
       <head>
       </head>
       <body className="flex justify-center">
@@ -48,7 +49,6 @@ export default function RootLayout({
         </div>
       </body>
       <GoogleAnalytics gaId="G-34HH867J1X" />
-      <GoogleTagManager gtmId="GTM-KLRFQTTK" />
     </html>
   );
 }
