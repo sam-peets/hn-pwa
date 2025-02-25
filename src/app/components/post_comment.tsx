@@ -12,7 +12,6 @@ export default function PostComment({ id, level }: { id: number, level: number }
     useEffect(() => {
         GetItem(id).then(x => {
             setComment(x)
-            // console.log(x)
         })
     }, [id])
 
@@ -20,7 +19,7 @@ export default function PostComment({ id, level }: { id: number, level: number }
         return <p>loading...</p>
     }
     if (comment.text == null) {
-        return <p>empty comment</p>
+        return <></>
     }
     let date;
     if (comment.time) {

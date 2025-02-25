@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import Story from "../components/story";
 import PostComment from "../components/post_comment";
+import { comment } from "postcss";
 
 function PostView() {
     const searchParams = useSearchParams();
@@ -31,6 +32,9 @@ function PostView() {
     }
     return (<div>
         <Story id={parseInt(id)} idx={0} />
+        {post.text &&
+            <div dangerouslySetInnerHTML={{ __html: post.text }} className="text-slate-500"></div>
+        }
         <hr />
         {post.kids &&
             <div>

@@ -34,7 +34,14 @@ export default function Story({ id, idx }: { id: ItemId, idx: number }) {
                 <div className="flex">
                     <a href={story.url}>{story.title} {story.url && <span className="text-slate-500">({url?.host})</span>}</a>
                 </div>
-                <Link href={`post?id=${story.id}`} className="text-slate-500">{story.score} points | {story.descendants} comments | {time && <DateAgo date={time} />}</Link>
+                <div className="flex">
+                    <p className="text-slate-500">
+                        <span>{time && <DateAgo date={time} />} by </span>
+                        <Link href={`/user?u=${story.by}`}>{story.by}</Link>
+                        <span> | {story.score} points | </span>
+                        <Link href={`post?id=${story.id}`}>{story.descendants} comments</Link>
+                    </p>
+                </div>
             </div>
         </div>
     )
