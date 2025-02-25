@@ -7,20 +7,20 @@ export default function manifest(): MetadataRoute.Manifest {
     "short_name": "HN PWA",
     "icons": [
       {
-        "src": "https://sampeets.com/hn-pwa/web-app-manifest-192x192.png",
+        "src": "/web-app-manifest-192x192.png",
         "sizes": "192x192",
         "type": "image/png",
         "purpose": "maskable"
       },
       {
-        "src": "https://sampeets.com/hn-pwa/web-app-manifest-512x512.png",
+        "src": "/web-app-manifest-512x512.png",
         "sizes": "512x512",
         "type": "image/png",
         "purpose": "maskable"
       }
     ],
     "display": "standalone",
-    "id": "https://sampeets.com/hn-pwa/",
-    "start_url": "https://sampeets.com/hn-pwa/"
+    "id": "/",
+    "start_url": "/"
   }
 }
