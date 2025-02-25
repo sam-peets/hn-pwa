@@ -1,9 +1,13 @@
-"use client";
 import "./globals.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import { GoogleAnalytics } from '@next/third-parties/google'
+import type { Metadata } from 'next'
 
+export const metadata: Metadata = {
+  title: 'HN PWA',
+  description: 'Progressive Web App frontend for Hacker News built with Next.js',
+}
 export default function RootLayout({
   children,
 }: Readonly<{
