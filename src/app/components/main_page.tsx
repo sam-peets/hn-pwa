@@ -1,31 +1,34 @@
 "use client";
 import StoryList from "./story_list";
-import { ItemId } from "@/api/hn";
-import { useEffect, useState } from "react";
+import { GetBestStories, ItemId } from "@/api/hn";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { use, useEffect, useState } from "react";
 
 const LIMIT = 20;
 export default function MainPage({ getStoriesFn }: { getStoriesFn: () => Promise<ItemId[] | null> }) {
     const [stories, setStories] = useState<ItemId[] | null>(null)
-    const [skip, setSkip] = useState<number>(0)
-    useEffect(() => {
-        getStoriesFn().then(x => setStories(x))
-    }, [getStoriesFn])
-    function next() {
-        setSkip(skip + LIMIT)
+    const searchParams = useSearchParams();
+
+    let page_s = searchParams.get("p")
+    let page;
+
+    if (page_s != null) {
+        page = parseInt(page_s);
+    } else {
+        page = 0;
     }
 
-    function prev() {
-        if (skip == 0) {
-            return;
-        }
-        setSkip(skip - LIMIT)
-    }
+    useEffect(() => {
+        getStoriesFn().then(x => setStories(x))
+    }, [])
 
     return (stories &&
         <div>
-            <StoryList skip={skip} limit={LIMIT} ids={stories} />
-            <button onClick={prev} className="p-2" disabled={skip <= 0}>Prev</button>
-            <button onClick={next} className="p-2" disabled={skip + LIMIT >= stories.length}>Next</button>
+            <StoryList skip={page * LIMIT} limit={LIMIT} ids={stories} />
+
+            <Link href={`/?p=${page - 1}`} className={`p-2 ${page == 0 ? 'pointer-events-none text-slate-500' : ''}`}>Prev</Link>
+            <Link href={`/?p=${page + 1}`} className={`p-2 ${(page + 1) * LIMIT >= stories.length ? 'pointer-events-none text-slate-500' : ''}`}>Next</Link>
         </div>
     );
 }
