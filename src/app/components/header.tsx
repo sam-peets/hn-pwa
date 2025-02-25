@@ -7,7 +7,7 @@ export default function Header() {
         <div className="w-full p-2">
             <div className="flex">
                 <Link href="/" className="px-2">
-                    <h2>HN PWA</h2>
+                    <h1>HN PWA</h1>
                 </Link>
                 <Link href="/" className="px-2">top</Link>
                 <Link href="/best" className="px-2">best</Link>
