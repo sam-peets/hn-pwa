@@ -5,6 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     "name": "HN PWA",
     "short_name": "HN PWA",
+    "description": "HN PWA is a PWA-installable frontend for Hacker News using the Firebase API.",
     "icons": [
       {
         "src": "/web-app-manifest-192x192.png",
@@ -17,10 +18,23 @@ export default function manifest(): MetadataRoute.Manifest {
         "sizes": "512x512",
         "type": "image/png",
         "purpose": "maskable"
+      },
+      {
+        "src": "/web-app-manifest-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any"
       }
     ],
+    "background_color": "#000000",
+    "theme_color": "#000000",
     "display": "standalone",
     "id": "/",
-    "start_url": "/"
+    "start_url": "/",
+    "launch_handler": {
+      "client_mode": "focus-existing"
+    },
+    "orientation": "natural",
+    "screenshots": []
   }
 }
