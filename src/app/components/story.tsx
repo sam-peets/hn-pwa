@@ -1,7 +1,8 @@
 "use client";
 import { GetItem, Item, ItemId } from "@/api/hn";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../globals.css"
+import Link from "next/link";
 export default function Story({ id, idx }: { id: ItemId, idx: number }) {
     const [story, setStory] = useState<Item | null>(null);
     useEffect(() => {
@@ -32,7 +33,7 @@ export default function Story({ id, idx }: { id: ItemId, idx: number }) {
                 <div className="flex">
                     <a href={story.url}>{story.title} {story.url && <span className="text-slate-500">({url?.host})</span>}</a>
                 </div>
-                <a href={`post?id=${story.id}`} className="text-slate-500">{story.score} points | {story.descendants} comments | {time?.toTimeString()}</a>
+                <Link href={`post?id=${story.id}`} className="text-slate-500">{story.score} points | {story.descendants} comments | {time?.toTimeString()}</Link>
             </div>
         </div>
     )

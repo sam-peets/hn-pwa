@@ -1,7 +1,7 @@
 "use client";
 import StoryList from "./story_list";
-import { GetBestStories, ItemId } from "@/api/hn";
-import { use, useEffect, useState } from "react";
+import { ItemId } from "@/api/hn";
+import { useEffect, useState } from "react";
 
 const LIMIT = 20;
 export default function MainPage({ getStoriesFn }: { getStoriesFn: () => Promise<ItemId[] | null> }) {
@@ -9,7 +9,7 @@ export default function MainPage({ getStoriesFn }: { getStoriesFn: () => Promise
     const [skip, setSkip] = useState<number>(0)
     useEffect(() => {
         getStoriesFn().then(x => setStories(x))
-    }, [])
+    }, [getStoriesFn])
     function next() {
         setSkip(skip + LIMIT)
     }

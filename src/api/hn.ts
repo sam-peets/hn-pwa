@@ -1,4 +1,4 @@
-import firebase, { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import { Database, get, getDatabase, ref } from "firebase/database";
 
 export type ItemId = number;
@@ -36,10 +36,10 @@ abstract class DbRef {
 const db = new class extends DbRef {
     get(): Database {
         if (this.ref == null) {
-            var config = {
+            const config = {
                 databaseURL: "https://hacker-news.firebaseio.com",
             };
-            let app = initializeApp(config);
+            const app = initializeApp(config);
             this.ref = getDatabase(app);
         }
         return this.ref;
@@ -48,8 +48,8 @@ const db = new class extends DbRef {
 
 
 export async function GetItem(id: ItemId): Promise<Item | null> {
-    let r = ref(db.get(), `/v0/item/${id}`)
-    let res = await get(r);
+    const r = ref(db.get(), `/v0/item/${id}`)
+    const res = await get(r);
     if (!res.exists) {
         return null;
     }
@@ -57,8 +57,8 @@ export async function GetItem(id: ItemId): Promise<Item | null> {
 }
 
 export async function GetUser(username: string): Promise<User | null> {
-    let r = ref(db.get(), `/v0/user/${username}`)
-    let res = await get(r);
+    const r = ref(db.get(), `/v0/user/${username}`)
+    const res = await get(r);
     if (!res.exists) {
         return null;
     }
@@ -66,24 +66,24 @@ export async function GetUser(username: string): Promise<User | null> {
 }
 
 export async function GetBestStories(): Promise<ItemId[] | null> {
-    let r = ref(db.get(), `/v0/beststories`)
-    let res = await get(r);
+    const r = ref(db.get(), `/v0/beststories`)
+    const res = await get(r);
     if (!res.exists) {
         return null;
     }
     return res.val();
 }
 export async function GetTopStories(): Promise<ItemId[] | null> {
-    let r = ref(db.get(), `/v0/topstories`)
-    let res = await get(r);
+    const r = ref(db.get(), `/v0/topstories`)
+    const res = await get(r);
     if (!res.exists) {
         return null;
     }
     return res.val();
 }
 export async function GetNewStories(): Promise<ItemId[] | null> {
-    let r = ref(db.get(), `/v0/newstories`)
-    let res = await get(r);
+    const r = ref(db.get(), `/v0/newstories`)
+    const res = await get(r);
     if (!res.exists) {
         return null;
     }

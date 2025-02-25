@@ -1,6 +1,6 @@
 import { GetItem, Item } from "@/api/hn";
 import { TimeSince } from "@/util";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 export default function PostComment({ id, level }: { id: number, level: number }) {
     const [comment, setComment] = useState<Item | null>(null);
     const [collapse, setCollapse] = useState<boolean>(false);
@@ -13,7 +13,7 @@ export default function PostComment({ id, level }: { id: number, level: number }
             setComment(x)
             console.log(x)
         })
-    }, [])
+    }, [id])
 
     if (comment == null) {
         return <p>loading...</p>
@@ -23,7 +23,7 @@ export default function PostComment({ id, level }: { id: number, level: number }
     }
     let ago;
     if (comment.time) {
-        let date = new Date(comment.time * 1000);
+        const date = new Date(comment.time * 1000);
         ago = TimeSince(date);
     }
     return <div className="py-2">

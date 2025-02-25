@@ -1,5 +1,5 @@
 "use client";
-import { GetBestStories, GetNewStories } from "@/api/hn";
+import { GetNewStories } from "@/api/hn";
 import MainPage from "../components/main_page";
 
 export default function Page() {
