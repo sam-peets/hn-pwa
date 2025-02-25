@@ -35,6 +35,10 @@ export default function manifest(): MetadataRoute.Manifest {
       "client_mode": "focus-existing"
     },
     "orientation": "natural",
-    "screenshots": []
+    "screenshots": [],
+    "categories": ["social", "news"],
+    "dir": "auto",
+    "scope": "https://hn.sampeets.com",
+    "lang": "en"
   }
 }
