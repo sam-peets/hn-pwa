@@ -37,7 +37,7 @@ export default function Story({ id, idx }: { id: ItemId, idx: number }) {
                 <div className="flex">
                     <p className="text-slate-500">
                         <span>{time && <DateAgo date={time} />} by </span>
-                        <Link href={`/user?u=${story.by}`}>{story.by}</Link>
+                        <Link href={`user?u=${story.by}`}>{story.by}</Link>
                         <span> | {story.score} points | </span>
                         <Link href={`post?id=${story.id}`}>{story.descendants} comments</Link>
                     </p>
