@@ -1,7 +1,7 @@
 import "./globals.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -48,6 +48,7 @@ export default function RootLayout({
         </div>
       </body>
       <GoogleAnalytics gaId="G-34HH867J1X" />
+      <GoogleTagManager gtmId="GTM-KLRFQTTK" />
     </html>
   );
 }
