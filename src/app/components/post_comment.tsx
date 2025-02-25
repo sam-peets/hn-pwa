@@ -1,5 +1,4 @@
 import { GetItem, Item } from "@/api/hn";
-import { TimeSince } from "@/util";
 import { useEffect, useState } from "react";
 import DateAgo from "./date_ago";
 export default function PostComment({ id, level }: { id: number, level: number }) {

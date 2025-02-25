@@ -5,7 +5,6 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import Story from "../components/story";
 import PostComment from "../components/post_comment";
-import { comment } from "postcss";
 
 function PostView() {
     const searchParams = useSearchParams();

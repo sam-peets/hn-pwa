@@ -1,16 +1,16 @@
 "use client";
 import StoryList from "./story_list";
-import { GetBestStories, ItemId } from "@/api/hn";
+import { ItemId } from "@/api/hn";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const LIMIT = 20;
 export default function MainPage({ getStoriesFn }: { getStoriesFn: () => Promise<ItemId[] | null> }) {
     const [stories, setStories] = useState<ItemId[] | null>(null)
     const searchParams = useSearchParams();
 
-    let page_s = searchParams.get("p")
+    const page_s = searchParams.get("p")
     let page;
 
     if (page_s != null) {
@@ -21,7 +21,7 @@ export default function MainPage({ getStoriesFn }: { getStoriesFn: () => Promise
 
     useEffect(() => {
         getStoriesFn().then(x => setStories(x))
-    }, [])
+    }, [getStoriesFn])
 
     return (stories &&
         <div>
