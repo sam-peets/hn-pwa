@@ -20,7 +20,7 @@ function UserBox() {
     }, [username])
 
     if (username == null || user == null) {
-        return <p>not found</p>
+        return <p>loading...</p>
     }
 
     return <div className="grid grid-cols-7 gap-4">

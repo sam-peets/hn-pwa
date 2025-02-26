@@ -1,6 +1,7 @@
 import { GetItem, Item } from "@/api/hn";
 import { useEffect, useState } from "react";
 import DateAgo from "./date_ago";
+import Link from "next/link";
 export default function PostComment({ id, level }: { id: number, level: number }) {
     const [comment, setComment] = useState<Item | null>(null);
     const [collapse, setCollapse] = useState<boolean>(false);
@@ -27,7 +28,7 @@ export default function PostComment({ id, level }: { id: number, level: number }
     return <div className="py-2">
         <div className="flex">
             <button onClick={toggleCollapse}>[ {collapse ? "+" : "-"} ]</button>
-            <p className="text-slate-500 pl-3">{comment.by} | {date && <DateAgo date={date} />}</p>
+            <p className="text-slate-500 pl-3"><Link href={`user?u=${comment.by}`}>{comment.by}</Link> | {date && <DateAgo date={date} />}</p>
         </div>
         <div className={collapse ? "hidden" : ""}>
             <div dangerouslySetInnerHTML={{ __html: comment.text }} />
